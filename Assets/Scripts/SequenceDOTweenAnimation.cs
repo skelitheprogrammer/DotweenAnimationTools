@@ -1,35 +1,46 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SequenceDOTweenAnimation : MonoBehaviour
 {
-    public List<CustomSequenceElement> _tweens;
+    public bool onAwake;
+    public List<CustomSequenceElement> tweens;
     private Sequence _sequence;
+
+    public UnityEvent onSequenceEndEvent;
+
 
     private void Awake()
     {
         _sequence = DOTween.Sequence();
 
-        foreach (var item in _tweens)
+        foreach(var item in tweens)
         {
-            if (item.reference.onAwake)
-            {
-                item.reference.onAwake = false;
-            } 
-
-            var tweener = item.reference.Tweener;
+            item.animationSettings.Setup(transform);
             
             if (item.join)
             {
-                _sequence.Join(tweener);
+                _sequence.Join(item.animationSettings.Tweener);
             }
             else
             {
-                _sequence.Append(tweener);
+                _sequence.Append(item.animationSettings.Tweener);
             }
         }
 
+        _sequence.OnComplete(() => onSequenceEndEvent?.Invoke());
+
+        if (onAwake)
+        {
+            PlaySequence();
+        }
+
+    }
+
+    public void PlaySequence()
+    {
         _sequence.Play();
     }
 }

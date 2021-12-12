@@ -26,7 +26,8 @@ public class SimpleDoTweenAnimation_Editor : Editor
 
     public override void OnInspectorGUI()
     {
-        List<string> isLoopableExcluded = new List<string>();
+        base.OnInspectorGUI();
+/*        List<string> isLoopableExcluded = new List<string>();
 
         if (!_isLoopable.boolValue)
         {
@@ -52,7 +53,7 @@ public class SimpleDoTweenAnimation_Editor : Editor
 
         DrawPropertiesExcluding(serializedObject, finalArray);
 
-        serializedObject.ApplyModifiedProperties();
+        serializedObject.ApplyModifiedProperties();*/
 
     }
 }

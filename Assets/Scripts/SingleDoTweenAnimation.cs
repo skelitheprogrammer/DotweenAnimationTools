@@ -1,20 +1,20 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class SingleDoTweenAnimation : DOTweenAnimationBase
+public class SingleDoTweenAnimation : MonoBehaviour
 {
+    public AnimationSettings animationSettings;
+    public bool onAwake;
+
     private void Awake()
     {
-        if (_animationType == AnimationType.None)
-        {
-            Debug.LogError($"Choose animation type in {gameObject.name} {name}");
-        }
-
-        Setup();
+        animationSettings.Setup(transform);
 
         if (onAwake)
         {
-            Tweener.Play();
+            animationSettings.Tweener.Play();
         }
     }
+
+
 }

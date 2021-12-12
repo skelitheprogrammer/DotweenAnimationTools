@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &123737149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,22 +155,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3b588b530d2cd45b39c3452b45054c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationType: 2
-  onAwake: 1
-  _invert: 1
-  _isLoopable: 1
-  _loopCount: -1
-  _loopType: 0
-  _delay: 0
-  _useCustomData: 1
-  _customData:
-    _time: 2
-    _easeMode: 1
-    _variable: {x: 0, y: 3, z: 0}
-  _animationData: {fileID: 11400000, guid: 603afb2989d9d174dbd230bedad7f6dc, type: 2}
-  _onCompleteEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  animationSettings:
+    animationType: 1
+    invert: 0
+    isLoopable: 0
+    loopCount: 0
+    loopType: 0
+    delay: 0
+    useCustomData: 0
+    customData:
+      _time: 3
+      _easeMode: 0
+      _variable: {x: 0, y: 0, z: 0}
+    animationData: {fileID: 0}
+    onCompleteEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  onAwake: 0
 --- !u!65 &123737150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -356,16 +357,13 @@ GameObject:
   - component: {fileID: 879758905}
   - component: {fileID: 879758904}
   - component: {fileID: 879758903}
-  - component: {fileID: 879758909}
-  - component: {fileID: 879758908}
-  - component: {fileID: 879758910}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &879758903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,13 +376,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ef814e68b0f8f458fdf32aa2c4dad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tweens:
+  onAwake: 1
+  tweens:
   - join: 0
-    reference: {fileID: 879758909}
+    animationSettings:
+      animationType: 2
+      invert: 0
+      isLoopable: 1
+      loopCount: 2
+      loopType: 0
+      delay: 0
+      useCustomData: 1
+      customData:
+        _time: 1
+        _easeMode: 0
+        _variable: {x: 0, y: 3, z: 0}
+      animationData: {fileID: 0}
+      onCompleteEvent:
+        m_PersistentCalls:
+          m_Calls: []
   - join: 0
-    reference: {fileID: 879758908}
-  - join: 0
-    reference: {fileID: 879758910}
+    animationSettings:
+      animationType: 3
+      invert: 0
+      isLoopable: 0
+      loopCount: 0
+      loopType: 0
+      delay: 0
+      useCustomData: 1
+      customData:
+        _time: 1
+        _easeMode: 0
+        _variable: {x: 3, y: 0, z: 0}
+      animationData: {fileID: 0}
+      onCompleteEvent:
+        m_PersistentCalls:
+          m_Calls: []
+  onSequenceEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &879758904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -463,90 +493,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &879758908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879758902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3b588b530d2cd45b39c3452b45054c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animationType: 1
-  onAwake: 0
-  _invert: 0
-  _isLoopable: 0
-  _loopCount: 0
-  _loopType: 0
-  _delay: 0
-  _useCustomData: 1
-  _customData:
-    _time: 1
-    _easeMode: 1
-    _variable: {x: 3, y: 0, z: 0}
-  _animationData: {fileID: 0}
-  _onCompleteEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &879758909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879758902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3b588b530d2cd45b39c3452b45054c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animationType: 1
-  onAwake: 1
-  _invert: 0
-  _isLoopable: 0
-  _loopCount: 0
-  _loopType: 0
-  _delay: 0
-  _useCustomData: 1
-  _customData:
-    _time: 1
-    _easeMode: 1
-    _variable: {x: 0, y: 3, z: 0}
-  _animationData: {fileID: 0}
-  _onCompleteEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &879758910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879758902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3b588b530d2cd45b39c3452b45054c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animationType: 1
-  onAwake: 0
-  _invert: 0
-  _isLoopable: 0
-  _loopCount: 0
-  _loopType: 0
-  _delay: 0
-  _useCustomData: 1
-  _customData:
-    _time: 1
-    _easeMode: 0
-    _variable: {x: 1, y: 1, z: 0}
-  _animationData: {fileID: 0}
-  _onCompleteEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
