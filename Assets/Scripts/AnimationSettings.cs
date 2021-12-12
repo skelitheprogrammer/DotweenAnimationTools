@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [Serializable]
-public class AnimationSettings
+public abstract class AnimationSettings<T> where T : struct
 {
     [SerializeField] private AnimationType _animationType;
     public AnimationType AnimationType => _animationType;
@@ -25,10 +25,10 @@ public class AnimationSettings
     public Tweener Tweener { get; private set; }
 
     [Space(5f)]
-    [SerializeField] private bool _useCustomData;
+    [SerializeField] private bool useCustomData;
 
-    [SerializeField] private DoTweenAnimationData<Vector3> _customData;
-    [SerializeField] private DoTweenAnimationDataCreator<Vector3> _animationData;
+    public abstract DoTweenAnimationData<T> CustomData { get;}
+    public abstract DoTweenAnimationDataCreator<T> SOAnimationData { get; }
 
     [Space(10f)]
     [SerializeField] private UnityEvent _onCompleteEvent;
@@ -46,33 +46,33 @@ public class AnimationSettings
             throw new Exception($"AnimationSettings: Choose animation type in {target.gameObject.name}");
         }
 
-        if (!_useCustomData && _animationData == null)
+        if (!useCustomData && SOAnimationData == null)
         {
             throw new NullReferenceException($"AnimationSettings: Assign animation data to {target.gameObject.name} or use custom data");
         }
 
         float time;
         Ease easeMode;
-        Vector3 toValue;
+        T toValue;
 
-        if (_useCustomData)
+        if (useCustomData)
         {
-            time = _customData.Time;
-            easeMode = _customData.EaseMode;
-            toValue = _customData.Variable;
+            time = CustomData.Time;
+            easeMode = CustomData.EaseMode;
+            toValue = CustomData.Variable;
         }
         else
         {
-            time = _animationData.Settings.Time;
-            easeMode = _animationData.Settings.EaseMode;
-            toValue = _animationData.Settings.Variable;
+            time = SOAnimationData.Settings.Time;
+            easeMode = SOAnimationData.Settings.EaseMode;
+            toValue = SOAnimationData.Settings.Variable;
         }
 
         if (time == 0)
         {
             Debug.LogWarning($"AnimationSettings: {target.gameObject.name} timer set to 0!");
         }
-
+/*
         if (_blend)
         {
             switch (_animationType)
@@ -102,7 +102,7 @@ public class AnimationSettings
                     Tweener = target.DOScale(toValue, time);
                     break;
             }
-        }
+        }*/
 
         if (_invert)
         {
@@ -119,5 +119,34 @@ public class AnimationSettings
         Tweener.SetDelay(_delay);
 
         Tweener.OnComplete(() => _onCompleteEvent?.Invoke());
+    }
+
+    protected abstract void SetupTweener(object target, T tovalue, float time);
+}
+
+public sealed class AnimationSettingsFloat : AnimationSettings<float>
+{
+    [SerializeField] private DoTweenAnimationData<float> _customData;
+    [SerializeField] private DoTweenAnimationDataCreator<float> _soAnimationData;
+
+    public override DoTweenAnimationData<float> CustomData => _customData;
+    public override DoTweenAnimationDataCreator<float> SOAnimationData => _soAnimationData;
+
+    protected override void SetupTweener(object target, float tovalue, float time)
+    {
+
+    }
+}
+
+public sealed class AnimationSettingsVector3 : AnimationSettings<Vector3>
+{
+    [SerializeField] private DoTweenAnimationData<Vector3> _customData;
+    [SerializeField] private DoTweenAnimationDataCreator<Vector3> _soAnimationData;
+
+    public override DoTweenAnimationData<Vector3> CustomData => _customData;
+    public override DoTweenAnimationDataCreator<Vector3> SOAnimationData => _soAnimationData;
+
+    protected override void SetupTweener(object target, Vector3 tovalue, float time)
+    {
     }
 }

@@ -16,7 +16,7 @@ public class SequenceDOTweenAnimation : MonoBehaviour
     {
         _sequence = DOTween.Sequence();
 
-        foreach(var item in tweens)
+/*        foreach(var item in tweens)
         {
             item.animationSettings.Setup(transform);
             
@@ -28,7 +28,7 @@ public class SequenceDOTweenAnimation : MonoBehaviour
             {
                 _sequence.Append(item.animationSettings.Tweener);
             }
-        }
+        }*/
 
         _sequence.OnComplete(() => onSequenceEndEvent?.Invoke());
 
