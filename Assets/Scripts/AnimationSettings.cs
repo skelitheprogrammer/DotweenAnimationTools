@@ -1,8 +1,9 @@
 ﻿using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable]
+[Serializable]
 public class AnimationSettings
 {
     public AnimationType animationType;
@@ -31,9 +32,19 @@ public class AnimationSettings
 
     public void Setup(Transform target)
     {
+        if (target == null)
+        {
+            throw new NullReferenceException($"AnimationSettings: script requiers a target");
+        }
+
         if (animationType == AnimationType.None)
         {
-            Debug.LogError($"Choose animation type in {target.gameObject.name}");
+            throw new Exception($"AnimationSettings: Choose animation type in {target.gameObject.name}");
+        }
+
+        if (!useCustomData && animationData == null)
+        {
+            throw new NullReferenceException($"AnimationSettings: Assign animation data to {target.gameObject.name} or use custom data");
         }
 
         float time;
@@ -51,6 +62,11 @@ public class AnimationSettings
             time = animationData.Settings.Time;
             easeMode = animationData.Settings.EaseMode;
             toValue = animationData.Settings.Variable;
+        }
+
+        if (time == 0)
+        {
+            Debug.LogWarning($"AnimationSettings: {target.gameObject.name} timer set to 0!");
         }
 
         switch (animationType)

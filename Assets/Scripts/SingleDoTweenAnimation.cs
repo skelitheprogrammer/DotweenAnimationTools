@@ -8,7 +8,7 @@ public class SingleDoTweenAnimation : MonoBehaviour
 
     private void Awake()
     {
-        animationSettings.Setup(transform);
+        animationSettings.Setup(null);
 
         if (onAwake)
         {
