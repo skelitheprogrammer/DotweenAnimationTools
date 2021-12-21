@@ -1,0 +1,10 @@
+.marginer {
+    top: auto;
+    margin-top: 20px;
+}
+
+.textfieldcurve {
+    -unity-font-style: italic;
+    -unity-text-align: middle-center;
+    white-space: normal;
+}
