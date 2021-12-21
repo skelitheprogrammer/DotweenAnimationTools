@@ -1,8 +1,4 @@
-﻿using DG.Tweening;
-using System;
-using System.Globalization;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UISync : MonoBehaviour
@@ -26,7 +22,7 @@ public class UISync : MonoBehaviour
     private Button _startAnimationButton;
     private Button _resetAnimationButton;
 
-    [SerializeField] private DoTweenAnimationComponent _component;
+    /*[SerializeField] private DoTweenAnimationComponent _component;
 
     private void Awake()
     {
@@ -402,5 +398,5 @@ public class UISync : MonoBehaviour
     {
         _component.StopTweener();
     }
-
+*/
 }

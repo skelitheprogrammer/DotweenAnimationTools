@@ -14,7 +14,7 @@ public class AnimationType
     public float Duration => _duration;
     public Vector3 Vector3ToValue => _vector3ToValue;
 
-    public Tweener Setup(Transform target)
+    public Tweener SetupAnimationType(Transform target)
     {
         Tweener tweener = null;
 
@@ -44,7 +44,7 @@ public class AnimationType
 
         return tweener;
     }
-
+    #region Set Methods
     public void SetAnimationType(DoTweenAnimationType type)
     {
         _animationType = type;
@@ -72,4 +72,6 @@ public class AnimationType
             _vector3ToValue = new Vector3(_vector3ToValue.x, _vector3ToValue.y, value);
         }
     }
+    #endregion
+
 }

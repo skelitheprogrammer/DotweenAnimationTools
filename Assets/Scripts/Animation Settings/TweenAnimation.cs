@@ -16,7 +16,7 @@ public class TweenAnimation
 
     public void Setup(ref Tweener tweener, Transform target)
     {
-        tweener = _animationType.Setup(target);
+        tweener = _animationType.SetupAnimationType(target);
 
         tweener.SetEase(_easeMode);
 
@@ -49,9 +49,6 @@ public class TweenAnimation
         {
             tweener.Flip();
         }
-
-/*        tweener.OnStart(() => _onStart?.Invoke());
-        tweener.OnComplete(() => _onComplete?.Invoke());*/
 
         if (_universalSettings.OnAwake)
         {

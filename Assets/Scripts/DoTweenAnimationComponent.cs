@@ -3,35 +3,14 @@ using UnityEngine;
 
 public class DoTweenAnimationComponent : MonoBehaviour
 {
-    [SerializeField] private AnimationSettings _animationSettings;
-    public AnimationSettings AnimationSettings => _animationSettings;
+    [SerializeField] private TweenAnimation _tweenAnimation;
 
-    [SerializeField] private bool _onAwake;
-    
+    public TweenAnimation TweenAnimation => _tweenAnimation;
+
     private Tweener _tweener;
 
     private void Awake()
     {
-        _animationSettings.Setup(ref _tweener, transform);
-
-        if (_onAwake)
-        {
-            _tweener.Play();
-        }
-    }
-
-    public void PlayTweener()
-    {
-        if (_tweener.IsPlaying()) return;
-
-        _animationSettings.Setup(ref _tweener, transform);
-        _tweener.Play().OnComplete(() => _tweener.Rewind());
-    }
-
-    public void StopTweener()
-    {
-        if (!_tweener.IsPlaying()) return;
-        
-        _tweener.Rewind();
+        _tweenAnimation.Setup(ref _tweener, transform);
     }
 }

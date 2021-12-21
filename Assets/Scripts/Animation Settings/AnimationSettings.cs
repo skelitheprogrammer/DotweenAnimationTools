@@ -43,7 +43,7 @@ public class AnimationSettings
 
     public void Setup(ref Tweener tweener, Transform target)
     {
-        tweener = _animationType.Setup(target);
+        tweener = _animationType.SetupAnimationType(target);
 
         tweener.SetEase(_easeMode);
 
