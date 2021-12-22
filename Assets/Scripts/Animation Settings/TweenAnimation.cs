@@ -6,19 +6,24 @@ public class TweenAnimation
 {
     [SerializeField] private UniversalAnimationSettings _universalSettings;
     [SerializeField] private AnimationType _animationType;
-    [SerializeField] private Ease _easeMode;
     [SerializeField] private LoopSettings _loopSettings;
 
     public UniversalAnimationSettings UniversalSettings => _universalSettings;
     public AnimationType AnimationType => _animationType;
-    public Ease EaseMode => _easeMode;
     public LoopSettings LoopSettings => _loopSettings;
 
     public void Setup(ref Tweener tweener, Transform target)
     {
         tweener = _animationType.SetupAnimationType(target);
 
-        tweener.SetEase(_easeMode);
+        if (_universalSettings.UseCurve)
+        {
+            tweener.SetEase(_universalSettings.Curve);
+        }
+        else
+        {
+            tweener.SetEase(_universalSettings.EaseMode);
+        }
 
         if (_loopSettings.Loop)
         {
@@ -50,10 +55,6 @@ public class TweenAnimation
             tweener.Flip();
         }
 
-        if (_universalSettings.OnAwake)
-        {
-            tweener.Play();
-        }
     }
 
 }

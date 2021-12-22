@@ -8,11 +8,16 @@ public class AnimationType
 
     [SerializeField] private float _duration;
 
-    [SerializeField] private Vector3 _vector3ToValue;
+    [SerializeField] private bool _useFrom;
+    [SerializeField] private Vector3 _fromValue;
+    [SerializeField] private Vector3 _ToValue;
 
     public DoTweenAnimationType DoTweenAnimationType => _animationType;
     public float Duration => _duration;
-    public Vector3 Vector3ToValue => _vector3ToValue;
+
+    public bool UseFrom => _useFrom;
+    public Vector3 FromValue => _fromValue;
+    public Vector3 ToValue => _ToValue;
 
     public Tweener SetupAnimationType(Transform target)
     {
@@ -23,27 +28,61 @@ public class AnimationType
             case DoTweenAnimationType.None:
                 break;
             case DoTweenAnimationType.Move:
-                tweener = target.DOMove(_vector3ToValue, _duration);
+
+                if (_useFrom)
+                {
+                    tweener = target.DOMove(_ToValue, _duration).From(_fromValue);
+                }
+                else
+                {
+                    tweener = target.DOMove(_ToValue, _duration);
+                }
+
                 break;
             case DoTweenAnimationType.Rotate:
-                tweener = target.DORotate(_vector3ToValue, _duration);
+
+                if (_useFrom)
+                {
+                    tweener = target.DORotate(_ToValue, _duration).From(_fromValue);
+                }
+                else
+                {
+                    tweener = target.DORotate(_ToValue, _duration);
+                }
+
                 break;
             case DoTweenAnimationType.Scale:
-                tweener = target.DOScale(_vector3ToValue, _duration);
+
+                if (_useFrom)
+                {
+                    tweener = target.DOScale(_ToValue, _duration).From(_fromValue);
+                }
+                else
+                {
+                    tweener = target.DOScale(_ToValue, _duration);
+                }
+
                 break;
             case DoTweenAnimationType.MoveBlend:
-                tweener = target.DOBlendableMoveBy(_vector3ToValue, _duration);
+
+                tweener = target.DOBlendableMoveBy(_ToValue, _duration);
+
                 break;
             case DoTweenAnimationType.RotateBlend:
-                tweener = target.DOBlendableRotateBy(_vector3ToValue, _duration);
+
+                tweener = target.DOBlendableRotateBy(_ToValue, _duration);
+
                 break;
             case DoTweenAnimationType.ScaleBlend:
-                tweener = target.DOBlendableScaleBy(_vector3ToValue, _duration);
+
+                tweener = target.DOBlendableScaleBy(_ToValue, _duration);
+
                 break;
         }
 
         return tweener;
     }
+
     #region Set Methods
     public void SetAnimationType(DoTweenAnimationType type)
     {
@@ -59,17 +98,17 @@ public class AnimationType
     {
         if (axis == Vector3.right)
         {
-            _vector3ToValue = new Vector3(value, _vector3ToValue.y, _vector3ToValue.z);
+            _ToValue = new Vector3(value, _ToValue.y, _ToValue.z);
         }
 
         if (axis == Vector3.up)
         {
-            _vector3ToValue = new Vector3(_vector3ToValue.x, value, _vector3ToValue.z);
+            _ToValue = new Vector3(_ToValue.x, value, _ToValue.z);
         }
 
         if (axis == Vector3.forward)
         {
-            _vector3ToValue = new Vector3(_vector3ToValue.x, _vector3ToValue.y, value);
+            _ToValue = new Vector3(_ToValue.x, _ToValue.y, value);
         }
     }
     #endregion

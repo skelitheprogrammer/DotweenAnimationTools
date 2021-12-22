@@ -4,42 +4,46 @@ using UnityEngine;
 [System.Serializable]
 public class SequenceAnimation
 {
-    [SerializeField] private LoopSettings _loopSettings;
     [SerializeField] private UniversalAnimationSettings _universalSettings;
+    [SerializeField] private LoopSettings _loopSettings;
 
-    public LoopSettings LoopSettings => _loopSettings;
     public UniversalAnimationSettings UniversalSettings => _universalSettings;
+    public LoopSettings LoopSettings => _loopSettings;
 
-    public void Setup(Tweener tween, Transform transform)
+    public void Setup(Sequence seq)
     {
         if (_loopSettings.Loop)
         {
-            tween.SetLoops(_loopSettings.LoopCount, _loopSettings.LoopType);
+            seq.SetLoops(_loopSettings.LoopCount, _loopSettings.LoopType);
         }
 
-        tween.SetDelay(_universalSettings.Delay, _loopSettings.DelayEachLoop);
+        seq.SetDelay(_universalSettings.Delay, _loopSettings.DelayEachLoop);
 
         if (_universalSettings.TimeScale != 1)
         {
             if (_universalSettings.TimeScaleDuration == 0)
             {
-                tween.timeScale = _universalSettings.TimeScale;
+                seq.timeScale = _universalSettings.TimeScale;
             }
             else
             {
-                tween.DOTimeScale(_universalSettings.TimeScale, _universalSettings.TimeScaleDuration);
+                seq.DOTimeScale(_universalSettings.TimeScale, _universalSettings.TimeScaleDuration);
             }
+        }
+
+        if (_universalSettings.UseCurve)
+        {
+            seq.SetEase(_universalSettings.Curve);
+        }
+        else
+        {
+            seq.SetEase(_universalSettings.EaseMode);
         }
 
         if (_universalSettings.Invert)
         {
-            tween.Flip();
+            seq.Flip();
         }
 
-
-        if (_universalSettings.OnAwake)
-        {
-            tween.Play();
-        }
     }
 }

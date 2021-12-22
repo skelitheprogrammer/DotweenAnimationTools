@@ -14,11 +14,18 @@ public class UniversalAnimationSettings
     [SerializeField] private float _timeScaleDuration;
     [SerializeField] private bool _invert;
 
-    [SerializeField] private bool _onAwake;
+    [SerializeField] private Ease _easeMode;
+
+    [SerializeField] private bool _useCurve;
+    [SerializeField] private AnimationCurve _curve;
 
     public float Delay => _delay;
     public float TimeScale => _timeScale;
     public float TimeScaleDuration => _timeScaleDuration;
     public bool Invert => _invert;
-    public bool OnAwake => _onAwake;
+
+    public Ease EaseMode => _easeMode;
+
+    public bool UseCurve => _useCurve;
+    public AnimationCurve Curve => _curve;
 }

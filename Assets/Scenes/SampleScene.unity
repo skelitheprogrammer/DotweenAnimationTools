@@ -236,7 +236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &879758904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -328,17 +328,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sequenceAnimation:
-    _loopSettings:
-      _loop: 0
-      _delayEachLoop: 0
-      _loopCount: 0
-      _loopType: 0
     _universalSettings:
       _delay: 0
       _timeScale: 1
       _timeScaleDuration: 0
       _invert: 0
-      _onAwake: 0
+    _loopSettings:
+      _loop: 0
+      _delayEachLoop: 0
+      _loopCount: 0
+      _loopType: 0
+    _useEase: 1
+    _easeMode: 1
   _tweens:
   - _join: 0
     settings:
@@ -347,11 +348,12 @@ MonoBehaviour:
         _timeScale: 1
         _timeScaleDuration: 0
         _invert: 0
-        _onAwake: 0
       _animationType:
-        _animationType: 1
+        _animationType: 2
         _duration: 3
-        _vector3ToValue: {x: 0, y: 3, z: 0}
+        _useFrom: 0
+        _fromValue: {x: 0, y: 0, z: 0}
+        _ToValue: {x: 0, y: 0, z: 90}
       _easeMode: 0
       _loopSettings:
         _loop: 0
@@ -365,17 +367,19 @@ MonoBehaviour:
         _timeScale: 1
         _timeScaleDuration: 0
         _invert: 0
-        _onAwake: 0
       _animationType:
-        _animationType: 3
-        _duration: 1
-        _vector3ToValue: {x: 1, y: 3, z: 1}
-      _easeMode: 1
+        _animationType: 1
+        _duration: 3
+        _useFrom: 0
+        _fromValue: {x: 0, y: 0, z: 0}
+        _ToValue: {x: 0, y: 3, z: 0}
+      _easeMode: 0
       _loopSettings:
         _loop: 0
         _delayEachLoop: 0
         _loopCount: 0
         _loopType: 0
+  _onAwake: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1899088104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,17 +516,19 @@ MonoBehaviour:
       _timeScale: 1
       _timeScaleDuration: 0
       _invert: 0
-      _onAwake: 1
     _animationType:
       _animationType: 1
       _duration: 1
-      _vector3ToValue: {x: 0, y: 3, z: 0}
-    _easeMode: 1
+      _useFrom: 0
+      _fromValue: {x: 0, y: 0, z: 0}
+      _ToValue: {x: 0, y: 0, z: 0}
+    _easeMode: 0
     _loopSettings:
       _loop: 0
       _delayEachLoop: 0
       _loopCount: 0
       _loopType: 0
+  _onAwake: 0
 --- !u!65 &1899088105
 BoxCollider:
   m_ObjectHideFlags: 0

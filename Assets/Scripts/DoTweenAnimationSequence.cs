@@ -7,6 +7,8 @@ public class DoTweenAnimationSequence : MonoBehaviour
     [SerializeField] private SequenceAnimation _sequenceAnimation;
     [SerializeField] private List<CustomSequence> _tweens;
 
+    [SerializeField] private bool _onAwake;
+
     public SequenceAnimation SequenceAnimation => _sequenceAnimation;
 
     private Tweener _tweener;
@@ -14,16 +16,9 @@ public class DoTweenAnimationSequence : MonoBehaviour
     
     private void Awake()
     {
-        #region oldCode
-        /*        var universalSettings = _sequenceAnimation.UniversalSettings;
-        var loopSettings = _sequenceAnimation.LoopSettings;
-
         _sequence = DOTween.Sequence();
 
-        if (loopSettings.Loop)
-        {
-            _sequence.SetLoops(loopSettings.LoopCount, loopSettings.LoopType);
-        }
+        _sequenceAnimation.Setup(_sequence);
 
         foreach (var item in _tweens)
         {
@@ -45,54 +40,17 @@ public class DoTweenAnimationSequence : MonoBehaviour
 
         }
 
-        _sequence.SetDelay(universalSettings.Delay, loopSettings.DelayEachLoop);
-
-        if (universalSettings.TimeScale != 1)
-        {
-            if (universalSettings.TimeScaleDuration == 0)
-            {
-                _sequence.timeScale = universalSettings.TimeScale;
-            }
-            else
-            {
-                _sequence.DOTimeScale(universalSettings.TimeScale, universalSettings.TimeScaleDuration);
-            }
-        }
-
-        if (universalSettings.Invert)
-        {
-            _sequence.Flip();
-        }
-
-
-        if (universalSettings.OnAwake)
+        if (_onAwake)
         {
             _sequence.Play();
-        }*/
-        #endregion
-
-        _sequence = DOTween.Sequence();
-
-        foreach (var item in _tweens)
-        {
-            if (item.settings.AnimationType.DoTweenAnimationType is DoTweenAnimationType.None)
-            {
-                return;
-            }
-
-            item.settings.Setup(ref _tweener, transform);
-
-            if (item.Join)
-            {
-                _sequence.Join(_tweener);
-            }
-            else
-            {
-                _sequence.Append(_tweener);
-            }
-
         }
+    }
 
-        _sequenceAnimation.Setup(_tweener, transform);
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _sequence.Play();
+        }
     }
 }

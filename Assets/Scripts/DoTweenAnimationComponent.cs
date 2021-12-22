@@ -4,6 +4,7 @@ using UnityEngine;
 public class DoTweenAnimationComponent : MonoBehaviour
 {
     [SerializeField] private TweenAnimation _tweenAnimation;
+    [SerializeField] private bool _onAwake;
 
     public TweenAnimation TweenAnimation => _tweenAnimation;
 
@@ -12,5 +13,10 @@ public class DoTweenAnimationComponent : MonoBehaviour
     private void Awake()
     {
         _tweenAnimation.Setup(ref _tweener, transform);
+
+        if (_onAwake)
+        {
+            _tweener.Play();
+        } 
     }
 }
