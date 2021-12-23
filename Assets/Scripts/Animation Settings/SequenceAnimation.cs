@@ -7,8 +7,18 @@ public class SequenceAnimation
     [SerializeField] private UniversalAnimationSettings _universalSettings;
     [SerializeField] private LoopSettings _loopSettings;
 
+    [SerializeField] private bool _delaySequence;
+    [SerializeField] private float _delayDuration;
+
+    [SerializeField] private DoTweenAnimationEvents _events;
+
     public UniversalAnimationSettings UniversalSettings => _universalSettings;
     public LoopSettings LoopSettings => _loopSettings;
+
+    public bool DelaySequence => _delaySequence;
+    public float DelayDuration => _delayDuration;
+
+    public DoTweenAnimationEvents Events => _events;
 
     public void Setup(Sequence seq)
     {
@@ -17,7 +27,10 @@ public class SequenceAnimation
             seq.SetLoops(_loopSettings.LoopCount, _loopSettings.LoopType);
         }
 
-        seq.SetDelay(_universalSettings.Delay, _loopSettings.DelayEachLoop);
+        if (_delaySequence)
+        {
+            seq.SetDelay(_delayDuration, _delaySequence);
+        }
 
         if (_universalSettings.TimeScale != 1)
         {
@@ -37,7 +50,10 @@ public class SequenceAnimation
         }
         else
         {
-            seq.SetEase(_universalSettings.EaseMode);
+            if (_universalSettings.EaseMode != Ease.Unset)
+            {
+                seq.SetEase(_universalSettings.EaseMode);
+            }
         }
 
         if (_universalSettings.Invert)
@@ -45,5 +61,9 @@ public class SequenceAnimation
             seq.Flip();
         }
 
+        seq.OnStart(() => _events.OnStartEvent?.Invoke());
+        seq.OnComplete(() => _events.OnCompleteEvent?.Invoke());
+        seq.OnKill(() => _events.OnKillEvent?.Invoke());
+        seq.OnStepComplete(() => _events.OnStepComplete?.Invoke());
     }
 }

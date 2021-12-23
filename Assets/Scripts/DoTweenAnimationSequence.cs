@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class DoTweenAnimationSequence : MonoBehaviour
 {
+    [SerializeField] private bool _onAwake;
     [SerializeField] private SequenceAnimation _sequenceAnimation;
     [SerializeField] private List<CustomSequence> _tweens;
-
-    [SerializeField] private bool _onAwake;
 
     public SequenceAnimation SequenceAnimation => _sequenceAnimation;
 
@@ -44,13 +43,6 @@ public class DoTweenAnimationSequence : MonoBehaviour
         {
             _sequence.Play();
         }
-    }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _sequence.Play();
-        }
     }
 }

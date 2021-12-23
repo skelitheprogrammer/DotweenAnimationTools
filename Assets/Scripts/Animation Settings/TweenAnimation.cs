@@ -7,10 +7,12 @@ public class TweenAnimation
     [SerializeField] private UniversalAnimationSettings _universalSettings;
     [SerializeField] private AnimationType _animationType;
     [SerializeField] private LoopSettings _loopSettings;
+    [SerializeField] private DoTweenAnimationEvents _events;
 
     public UniversalAnimationSettings UniversalSettings => _universalSettings;
     public AnimationType AnimationType => _animationType;
     public LoopSettings LoopSettings => _loopSettings;
+    public DoTweenAnimationEvents Events => _events;
 
     public void Setup(ref Tweener tweener, Transform target)
     {
@@ -55,6 +57,10 @@ public class TweenAnimation
             tweener.Flip();
         }
 
+        tweener.OnStart(() => _events.OnStartEvent?.Invoke());
+        tweener.OnComplete(() => _events.OnCompleteEvent?.Invoke());
+        tweener.OnKill(() => _events.OnKillEvent?.Invoke());
+        tweener.OnStepComplete(() => _events.OnStepComplete?.Invoke());
     }
 
 }

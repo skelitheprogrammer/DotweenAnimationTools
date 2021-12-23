@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class DoTweenAnimationComponent : MonoBehaviour
 {
-    [SerializeField] private TweenAnimation _tweenAnimation;
     [SerializeField] private bool _onAwake;
+    [SerializeField] private TweenAnimation _tweenAnimation;
 
     public TweenAnimation TweenAnimation => _tweenAnimation;
 

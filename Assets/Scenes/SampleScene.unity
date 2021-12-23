@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 879758905}
   - component: {fileID: 879758904}
   - component: {fileID: 879758908}
+  - component: {fileID: 879758909}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -327,59 +328,255 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539f3b0e40f7766438e77166e143cf4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onAwake: 1
   _sequenceAnimation:
     _universalSettings:
-      _delay: 0
+      _delay: 2
       _timeScale: 1
       _timeScaleDuration: 0
       _invert: 0
+      _easeMode: 0
+      _useCurve: 0
+      _curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
     _loopSettings:
-      _loop: 0
-      _delayEachLoop: 0
-      _loopCount: 0
+      _loop: 1
+      _loopCount: 2
       _loopType: 0
-    _useEase: 1
-    _easeMode: 1
+    _delaySequence: 1
+    _delayDuration: 1
+    _events:
+      _onStartEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 879758909}
+            m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
+            m_MethodName: Say
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Sequence started
+              m_BoolArgument: 0
+            m_CallState: 2
+      _onCompleteEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 879758909}
+            m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
+            m_MethodName: Say
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Sequence completed
+              m_BoolArgument: 0
+            m_CallState: 2
+      _onKillEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      _onStepComplete:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 879758909}
+            m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
+            m_MethodName: Say
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Sequence step completed
+              m_BoolArgument: 0
+            m_CallState: 2
   _tweens:
   - _join: 0
     settings:
       _universalSettings:
         _delay: 0
-        _timeScale: 1
+        _timeScale: 0
         _timeScaleDuration: 0
         _invert: 0
+        _easeMode: 1
+        _useCurve: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
       _animationType:
-        _animationType: 2
-        _duration: 3
+        _animationType: 1
+        _duration: 1
         _useFrom: 0
         _fromValue: {x: 0, y: 0, z: 0}
-        _ToValue: {x: 0, y: 0, z: 90}
-      _easeMode: 0
+        _ToValue: {x: 0, y: 3, z: 0}
       _loopSettings:
         _loop: 0
-        _delayEachLoop: 0
         _loopCount: 0
         _loopType: 0
+      _events:
+        _onStartEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 879758909}
+              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
+              m_MethodName: Say
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: Tween 0 started
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 879758909}
+              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
+              m_MethodName: Say
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: Tween 0 ended
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onKillEvent:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStepComplete:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 879758909}
+              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
+              m_MethodName: Say
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: Tween 0 step complete
+                m_BoolArgument: 0
+              m_CallState: 2
   - _join: 0
     settings:
       _universalSettings:
         _delay: 0
-        _timeScale: 1
+        _timeScale: 0
         _timeScaleDuration: 0
         _invert: 0
+        _easeMode: 0
+        _useCurve: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
       _animationType:
-        _animationType: 1
-        _duration: 3
+        _animationType: 3
+        _duration: 1
         _useFrom: 0
         _fromValue: {x: 0, y: 0, z: 0}
         _ToValue: {x: 0, y: 3, z: 0}
-      _easeMode: 0
       _loopSettings:
         _loop: 0
-        _delayEachLoop: 0
         _loopCount: 0
         _loopType: 0
-  _onAwake: 0
+      _events:
+        _onStartEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 879758909}
+              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
+              m_MethodName: Say
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: Tween 1 started
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 879758909}
+              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
+              m_MethodName: Say
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: Tween 1 completed
+                m_BoolArgument: 0
+              m_CallState: 2
+        _onKillEvent:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStepComplete:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 879758909}
+              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
+              m_MethodName: Say
+              m_Mode: 5
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: Tween 1 step completed
+                m_BoolArgument: 0
+              m_CallState: 2
+--- !u!114 &879758909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879758902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc1f9f78acaa1bf40ad99a92dc826a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,25 +707,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e60e05c4c7cf94ab3c304a4832b512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onAwake: 0
   _tweenAnimation:
     _universalSettings:
-      _delay: 0
+      _delay: 2
       _timeScale: 1
       _timeScaleDuration: 0
       _invert: 0
+      _easeMode: 0
+      _useCurve: 0
+      _curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
     _animationType:
       _animationType: 1
       _duration: 1
       _useFrom: 0
       _fromValue: {x: 0, y: 0, z: 0}
       _ToValue: {x: 0, y: 0, z: 0}
-    _easeMode: 0
     _loopSettings:
-      _loop: 0
-      _delayEachLoop: 0
-      _loopCount: 0
-      _loopType: 0
-  _onAwake: 0
+      _loop: 1
+      _loopCount: -1
+      _loopType: 1
+    _events:
+      _onStartEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      _onCompleteEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      _onKillEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      _onStepComplete:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!65 &1899088105
 BoxCollider:
   m_ObjectHideFlags: 0
