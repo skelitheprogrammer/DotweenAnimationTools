@@ -1,5 +1,9 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using NaughtyAttributes;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [System.Serializable]
 public class TweenAnimation
@@ -63,4 +67,19 @@ public class TweenAnimation
         tweener.OnStepComplete(() => _events.OnStepComplete?.Invoke());
     }
 
+#if UNITY_EDITOR
+    [Button("Save as asset")]
+    public void CreateAssetFromSettings()
+    {
+        TweenAnimationSO asset = ScriptableObject.CreateInstance<TweenAnimationSO>();
+        asset.WriteDataFrom(this);
+
+        AssetDatabase.CreateAsset(asset, "Assets/Data/Animation Data/New Tween animation settings.asset");
+        AssetDatabase.SaveAssets();
+
+        EditorUtility.FocusProjectWindow();
+
+        Selection.activeObject = asset;
+    }
+#endif
 }

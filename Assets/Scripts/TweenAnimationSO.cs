@@ -9,4 +9,9 @@ public class TweenAnimationSO : ScriptableObject
     [SerializeField] private TweenAnimation _animation;
 
     public TweenAnimation Animation => _animation;
+
+    public void WriteDataFrom(TweenAnimation animation)
+    {
+        _animation = animation;
+    }
 }

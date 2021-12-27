@@ -1,12 +1,18 @@
 using DG.Tweening;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class DoTweenAnimationComponent : MonoBehaviour
 {
+    
     [SerializeField] private bool _onAwake;
-    [SerializeField] private TweenAnimation _tweenAnimation;
     [SerializeField] private bool _useSavedSettings;
+
+    [ShowIf(nameof(_useSavedSettings))]
     [SerializeField] private TweenAnimationSO _tweenAnimationSO;
+
+    [HideIf(nameof(_useSavedSettings))]
+    [SerializeField] private TweenAnimation _tweenAnimation;
 
     public TweenAnimation TweenAnimation => _tweenAnimation;
 
@@ -29,4 +35,7 @@ public class DoTweenAnimationComponent : MonoBehaviour
             _tweener.Play();
         } 
     }
+
+
+
 }

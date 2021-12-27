@@ -448,84 +448,10 @@ MonoBehaviour:
             m_CallState: 2
   _tweens:
   - _join: 0
-    settings:
+    _tweenSettings:
       _universalSettings:
         _delay: 0
         _timeScale: 1
-        _timeScaleDuration: 0
-        _invert: 0
-        _useCurve: 0
-        _easeMode: 1
-        _curve:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
-      _animationType:
-        _animationType: 1
-        _duration: 1
-        _useFrom: 0
-        _fromValue: {x: 0, y: 0, z: 0}
-        _toValue: {x: 0, y: 0, z: 0}
-      _loopSettings:
-        _loop: 0
-        _loopCount: 0
-        _loopType: 0
-      _events:
-        _onStartEvent:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
-              m_MethodName: Say
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Tween 0 started
-                m_BoolArgument: 0
-              m_CallState: 2
-        _onCompleteEvent:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
-              m_MethodName: Say
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Tween 0 ended
-                m_BoolArgument: 0
-              m_CallState: 2
-        _onKillEvent:
-          m_PersistentCalls:
-            m_Calls: []
-        _onStepComplete:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
-              m_MethodName: Say
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Tween 0 step complete
-                m_BoolArgument: 0
-              m_CallState: 2
-  - _join: 0
-    settings:
-      _universalSettings:
-        _delay: 0
-        _timeScale: 0
         _timeScaleDuration: 0
         _invert: 0
         _useCurve: 0
@@ -533,12 +459,12 @@ MonoBehaviour:
         _curve:
           serializedVersion: 2
           m_Curve: []
-          m_PreInfinity: 0
-          m_PostInfinity: 0
-          m_RotationOrder: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
       _animationType:
-        _animationType: 3
-        _duration: 1
+        _animationType: 0
+        _duration: 0
         _useFrom: 0
         _fromValue: {x: 0, y: 0, z: 0}
         _toValue: {x: 0, y: 0, z: 0}
@@ -549,52 +475,58 @@ MonoBehaviour:
       _events:
         _onStartEvent:
           m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
-              m_MethodName: Say
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Tween 1 started
-                m_BoolArgument: 0
-              m_CallState: 2
+            m_Calls: []
         _onCompleteEvent:
           m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
-              m_MethodName: Say
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Tween 1 completed
-                m_BoolArgument: 0
-              m_CallState: 2
+            m_Calls: []
         _onKillEvent:
           m_PersistentCalls:
             m_Calls: []
         _onStepComplete:
           m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 0}
-              m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
-              m_MethodName: Say
-              m_Mode: 5
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: Tween 1 step completed
-                m_BoolArgument: 0
-              m_CallState: 2
+            m_Calls: []
+    _useSavedSettings: 0
+    _tweenSettingsSO: {fileID: 0}
+  - _join: 0
+    _tweenSettings:
+      _universalSettings:
+        _delay: 0
+        _timeScale: 1
+        _timeScaleDuration: 0
+        _invert: 0
+        _useCurve: 0
+        _easeMode: 0
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+      _animationType:
+        _animationType: 0
+        _duration: 0
+        _useFrom: 0
+        _fromValue: {x: 0, y: 0, z: 0}
+        _toValue: {x: 0, y: 0, z: 0}
+      _loopSettings:
+        _loop: 0
+        _loopCount: 0
+        _loopType: 0
+      _events:
+        _onStartEvent:
+          m_PersistentCalls:
+            m_Calls: []
+        _onCompleteEvent:
+          m_PersistentCalls:
+            m_Calls: []
+        _onKillEvent:
+          m_PersistentCalls:
+            m_Calls: []
+        _onStepComplete:
+          m_PersistentCalls:
+            m_Calls: []
+    _useSavedSettings: 0
+    _tweenSettingsSO: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,9 +658,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onAwake: 0
+  _useSavedSettings: 0
+  _tweenAnimationSO: {fileID: 0}
   _tweenAnimation:
     _universalSettings:
-      _delay: 2
+      _delay: 3
       _timeScale: 1
       _timeScaleDuration: 0
       _invert: 0
