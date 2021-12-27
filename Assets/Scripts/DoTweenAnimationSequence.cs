@@ -21,12 +21,19 @@ public class DoTweenAnimationSequence : MonoBehaviour
 
         foreach (var item in _tweens)
         {
-            if (item.settings.AnimationType.DoTweenAnimationType is DoTweenAnimationType.None)
+            if (item.TweenSettings.AnimationType.DoTweenAnimationType is DoTweenAnimationType.None)
             {
                 return;
             }
 
-            item.settings.Setup(ref _tweener, transform);
+            if (item.UseSavedSettings)
+            {
+                item.TweenSettingsSO.Animation.Setup(ref _tweener, transform);
+            }
+            else
+            {
+                item.TweenSettings.Setup(ref _tweener, transform);
+            }
 
             if (item.Join)
             {

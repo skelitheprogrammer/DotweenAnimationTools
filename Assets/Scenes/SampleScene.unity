@@ -226,7 +226,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 801886398}
-  - component: {fileID: 801886397}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -234,31 +233,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &801886397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 801886396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11974c9950df6dd4fb9fac3b700474a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings:
-    _delay: 0
-    _timeScale: 1
-    _timeScaleDuration: 0
-    _invert: 0
-    _useCurve: 0
-    _easeMode: 0
-    _curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
 --- !u!4 &801886398
 Transform:
   m_ObjectHideFlags: 0
@@ -287,7 +261,6 @@ GameObject:
   - component: {fileID: 879758905}
   - component: {fileID: 879758904}
   - component: {fileID: 879758908}
-  - component: {fileID: 879758909}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -428,7 +401,7 @@ MonoBehaviour:
       _onStartEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 879758909}
+          - m_Target: {fileID: 0}
             m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
             m_MethodName: Say
             m_Mode: 5
@@ -443,7 +416,7 @@ MonoBehaviour:
       _onCompleteEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 879758909}
+          - m_Target: {fileID: 0}
             m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
             m_MethodName: Say
             m_Mode: 5
@@ -461,7 +434,7 @@ MonoBehaviour:
       _onStepComplete:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 879758909}
+          - m_Target: {fileID: 0}
             m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
             m_MethodName: Say
             m_Mode: 5
@@ -503,7 +476,7 @@ MonoBehaviour:
         _onStartEvent:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 879758909}
+            - m_Target: {fileID: 0}
               m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
               m_MethodName: Say
               m_Mode: 5
@@ -518,7 +491,7 @@ MonoBehaviour:
         _onCompleteEvent:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 879758909}
+            - m_Target: {fileID: 0}
               m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
               m_MethodName: Say
               m_Mode: 5
@@ -536,7 +509,7 @@ MonoBehaviour:
         _onStepComplete:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 879758909}
+            - m_Target: {fileID: 0}
               m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
               m_MethodName: Say
               m_Mode: 5
@@ -577,7 +550,7 @@ MonoBehaviour:
         _onStartEvent:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 879758909}
+            - m_Target: {fileID: 0}
               m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
               m_MethodName: Say
               m_Mode: 5
@@ -592,7 +565,7 @@ MonoBehaviour:
         _onCompleteEvent:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 879758909}
+            - m_Target: {fileID: 0}
               m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
               m_MethodName: Say
               m_Mode: 5
@@ -610,7 +583,7 @@ MonoBehaviour:
         _onStepComplete:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 879758909}
+            - m_Target: {fileID: 0}
               m_TargetAssemblyTypeName: SayHiScript, Assembly-CSharp
               m_MethodName: Say
               m_Mode: 5
@@ -622,18 +595,6 @@ MonoBehaviour:
                 m_StringArgument: Tween 1 step completed
                 m_BoolArgument: 0
               m_CallState: 2
---- !u!114 &879758909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879758902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc1f9f78acaa1bf40ad99a92dc826a75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

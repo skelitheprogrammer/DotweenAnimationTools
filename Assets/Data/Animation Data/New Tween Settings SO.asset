@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24481c20c7db4ab46b73ec59f62af77f, type: 3}
+  m_Name: New Tween Settings SO
+  m_EditorClassIdentifier: 
+  _animation:
+    _universalSettings:
+      _delay: 0
+      _timeScale: 1
+      _timeScaleDuration: 0
+      _invert: 0
+      _useCurve: 0
+      _easeMode: 0
+      _curve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    _animationType:
+      _animationType: 0
+      _duration: 0
+      _useFrom: 0
+      _fromValue: {x: 0, y: 0, z: 0}
+      _toValue: {x: 0, y: 0, z: 0}
+    _loopSettings:
+      _loop: 0
+      _loopCount: 0
+      _loopType: 0
+    _events:
+      _onStartEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      _onCompleteEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      _onKillEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      _onStepComplete:
+        m_PersistentCalls:
+          m_Calls: []
