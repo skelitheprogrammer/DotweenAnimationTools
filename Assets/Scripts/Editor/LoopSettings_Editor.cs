@@ -7,58 +7,65 @@ using UnityEngine;
 [CustomPropertyDrawer(typeof(LoopSettings))]
 public class LoopSettings_Editor : PropertyDrawer
 {
-    private int lines;
+    private int _lines;
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
+        var style = new GUIStyle(GUI.skin.box);
+        style.normal.background = EditorExtensions.MakeTex(2, 2);
+
         var loop = property.FindPropertyRelative("_loop");
         var loopCount = property.FindPropertyRelative("_loopCount");
         var loopType = property.FindPropertyRelative("_loopType");
 
+        var labelSpace = 200;
         var defaultLabelWidth = EditorGUIUtility.labelWidth;
+        var spaceBetweenColumns = 3;
 
+        _lines = 0;
+        
         EditorGUI.BeginProperty(position, label, property);
 
-        Rect rectFoldout = new Rect(position.min.x, position.min.y, position.width, EditorGUIUtility.singleLineHeight);
+        Rect rectFoldout = EditorExtensions.CreateStartingLine(position);
+        _lines++;
+
+        GUI.Box(rectFoldout, GUIContent.none, style);
+
         property.isExpanded = EditorGUI.Foldout(rectFoldout, property.isExpanded, label);
-        
-        lines = 1;
-        
+
         if (property.isExpanded)
         {
-            EditorGUI.indentLevel++;
+            Rect loopRect = EditorExtensions.CreateNewLine(position, position.y);
+            loopRect.width /= 3;
+            _lines++;
 
-            Rect loopRect = new Rect(position.min.x, position.min.y + lines++ * EditorGUIUtility.singleLineHeight, position.size.x, EditorGUIUtility.singleLineHeight);
-
-            EditorGUIUtility.labelWidth = defaultLabelWidth - 120;
+            EditorGUIUtility.labelWidth = loopRect.xMax - loopRect.x * 2;
             EditorGUI.PropertyField(loopRect, loop);
 
             if (loop.boolValue)
             {
-                EditorGUI.indentLevel++;
-                EditorGUIUtility.labelWidth = defaultLabelWidth - 120;
 
-                Rect loopDropDownRect = new Rect(position.x, position.y + lines++ * EditorGUIUtility.singleLineHeight, position.size.x, EditorGUIUtility.singleLineHeight);
+                Rect loopCounterRect = loopRect;
+                loopCounterRect.x = loopRect.xMax + spaceBetweenColumns;
 
-                loopDropDownRect.width = (loopDropDownRect.width - 120) / 2;
+                var labelWidth = defaultLabelWidth - labelSpace;
+                labelWidth = Mathf.Clamp(labelWidth, 50, 280);
+                EditorGUIUtility.labelWidth -= labelWidth;
 
-                EditorGUI.PropertyField(loopDropDownRect, loopCount);
+                EditorGUI.PropertyField(loopCounterRect, loopCount);
 
-                loopDropDownRect.x += loopDropDownRect.width - 30;
+                Rect loopTypeRect = loopCounterRect;
+                loopTypeRect.x = loopCounterRect.xMax + spaceBetweenColumns;
 
-                EditorGUI.PropertyField(loopDropDownRect, loopType);
-
-                EditorGUIUtility.labelWidth = defaultLabelWidth;
-                EditorGUI.indentLevel--;
+                EditorGUI.PropertyField(loopTypeRect, loopType);
             }
 
-            EditorGUI.indentLevel--;
         }
         EditorGUI.EndProperty();
     }
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        return EditorGUIUtility.singleLineHeight * lines + EditorGUIUtility.standardVerticalSpacing * (lines - 1);
+        return EditorGUIUtility.singleLineHeight * _lines + EditorExtensions.GetStandardVerticalSpacing(3) * (_lines - 1) + 10;
     }
 }

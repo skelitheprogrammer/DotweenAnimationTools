@@ -14,9 +14,9 @@ public class UniversalAnimationSettings
     [SerializeField] private float _timeScaleDuration;
     [SerializeField] private bool _invert;
 
-    [SerializeField] private Ease _easeMode;
-
     [SerializeField] private bool _useCurve;
+
+    [SerializeField] private Ease _easeMode;
     [SerializeField] private AnimationCurve _curve;
 
     public float Delay => _delay;

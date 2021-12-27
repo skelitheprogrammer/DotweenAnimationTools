@@ -10,14 +10,14 @@ public class AnimationType
 
     [SerializeField] private bool _useFrom;
     [SerializeField] private Vector3 _fromValue;
-    [SerializeField] private Vector3 _ToValue;
+    [SerializeField] private Vector3 _toValue;
 
     public DoTweenAnimationType DoTweenAnimationType => _animationType;
     public float Duration => _duration;
 
     public bool UseFrom => _useFrom;
     public Vector3 FromValue => _fromValue;
-    public Vector3 ToValue => _ToValue;
+    public Vector3 ToValue => _toValue;
 
     public Tweener SetupAnimationType(Transform target)
     {
@@ -31,11 +31,11 @@ public class AnimationType
 
                 if (_useFrom)
                 {
-                    tweener = target.DOMove(_ToValue, _duration).From(_fromValue);
+                    tweener = target.DOMove(_toValue, _duration).From(_fromValue);
                 }
                 else
                 {
-                    tweener = target.DOMove(_ToValue, _duration);
+                    tweener = target.DOMove(_toValue, _duration);
                 }
 
                 break;
@@ -43,11 +43,11 @@ public class AnimationType
 
                 if (_useFrom)
                 {
-                    tweener = target.DORotate(_ToValue, _duration).From(_fromValue);
+                    tweener = target.DORotate(_toValue, _duration).From(_fromValue);
                 }
                 else
                 {
-                    tweener = target.DORotate(_ToValue, _duration);
+                    tweener = target.DORotate(_toValue, _duration);
                 }
 
                 break;
@@ -55,27 +55,27 @@ public class AnimationType
 
                 if (_useFrom)
                 {
-                    tweener = target.DOScale(_ToValue, _duration).From(_fromValue);
+                    tweener = target.DOScale(_toValue, _duration).From(_fromValue);
                 }
                 else
                 {
-                    tweener = target.DOScale(_ToValue, _duration);
+                    tweener = target.DOScale(_toValue, _duration);
                 }
 
                 break;
             case DoTweenAnimationType.MoveBlend:
 
-                tweener = target.DOBlendableMoveBy(_ToValue, _duration);
+                tweener = target.DOBlendableMoveBy(_toValue, _duration);
 
                 break;
             case DoTweenAnimationType.RotateBlend:
 
-                tweener = target.DOBlendableRotateBy(_ToValue, _duration);
+                tweener = target.DOBlendableRotateBy(_toValue, _duration);
 
                 break;
             case DoTweenAnimationType.ScaleBlend:
 
-                tweener = target.DOBlendableScaleBy(_ToValue, _duration);
+                tweener = target.DOBlendableScaleBy(_toValue, _duration);
 
                 break;
         }
@@ -98,17 +98,17 @@ public class AnimationType
     {
         if (axis == Vector3.right)
         {
-            _ToValue = new Vector3(value, _ToValue.y, _ToValue.z);
+            _toValue = new Vector3(value, _toValue.y, _toValue.z);
         }
 
         if (axis == Vector3.up)
         {
-            _ToValue = new Vector3(_ToValue.x, value, _ToValue.z);
+            _toValue = new Vector3(_toValue.x, value, _toValue.z);
         }
 
         if (axis == Vector3.forward)
         {
-            _ToValue = new Vector3(_ToValue.x, _ToValue.y, value);
+            _toValue = new Vector3(_toValue.x, _toValue.y, value);
         }
     }
     #endregion
